@@ -1,0 +1,532 @@
+---
+title: "Machine Learning dengan Python"
+author: "Andhika Muhamad Ichsan & Rafly Priyantama Ramadhan Bagaskara"
+date: "2024-12-06"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+# BAB 1: PENGANTAR PYTHON
+
+## Python untuk Machine Learning
+
+Sesuai survey yang dilakukan oleh Kaggle (sebuah komunitas *Data Science* yang dimiliki oleh Google), Python adalah bahasa nomor satu paling populer digunakan untuk *Machine Learning* dan *Artificial Intelligence*. Popularitas Python ini salah satunya adalah karena tersedianya banyak *library* (modul-modul siap pakai) yang mendukung kegiatan *Data Analytics* dan *Machine Learning*, misalnya **Matplotlib, Numpy, Pandas, Scikit-learn,** dan *library* tambahan Python lainnya. Berkat beragam *library* ini, tidak perlu lagi kita membeli perangkat lunak mahal untuk membangun kemampuan *Machine Learning*. Itu pula alasan utama mengapa buku ini dibuat: semua orang bisa mempelajari Python tanpa hambatan biaya.
+
+Di banyak organisasi dan industri, untuk kegiatan riset atau uji coba ide-ide baru, kebanyakan orang menggunakan perangkat lunak analisis data dan *data mining* komersial seperti SAS atau SPSS. Setelah ide-ide teruji dengan cukup, biasanya program akan dipindahkan ke lingkungan produksi untuk digunakan langsung di kegiatan operasional organisasi atau perusahaan. Dahulu, program semacam itu harus ditulis ulang di bahasa lain seperti Java atau C++ agar dapat bekerja dengan lebih efisien.
+
+Sekarang, dengan semakin lengkapnya Python untuk bisa digunakan, baik untuk keperluan eksperimental maupun untuk langsung diterapkan di lingkungan produksi, semakin banyak pula orang yang meninggalkan cara membuat program dua kali seperti dahulu kala. Tim yang bekerja di bagian riset atau analisis bisa menggunakan bahasa yang sama dengan pengembang dan *programmer*. Ini tentunya membuat peningkatan produktivitas karena hasil kerja bisa segera diterapkan untuk keuntungan organisasi atau perusahaan.
+
+## Dasar-dasar Python
+
+Buku ini menganggap pembaca sudah memiliki pengetahuan dasar tentang pemrograman dengan bahasa apapun, tidak harus dengan Python. Pembaca diharapkan sudah mengerti konsep-konsep umum seperti variabel, *array, loop*, dan sebagainya. Dalam bab ini akan dijelaskan kembali mengenai dasar-dasar Python terutama yang akan berguna untuk mengikuti contoh-contoh dalam bab-bab selanjutnya dalam buku ini. Perlu diperhatikan bahwa buku ini tidak mencoba menjadi acuan lengkap Python. Pembaca dapat mengacu ke referensi lain yang lebih lengkap.
+
+Python adalah ***interpreted language***, artinya *source code* (kode Program) yang Anda tulis akan dijalankan baris-per-baris oleh Python *interpreter*. Berbeda dengan bahasa lain misalnya C/C++ atau Java yang mengharuskan Anda menggunakan *compiler* untuk mengubah *source code* menjadi *executable* (program yang bisa dieksekusi). Tentu ada kelebihan dan kekurangan masing-masing.
+
+Untuk cara-cara memasang Python di komputer Anda, silakan lihat Lampiran 1 buku ini. Setelah terpasang, Python *interpreter*bisa dibuka dengan *command prompt* atau terminal di komputer Anda dan ketikkan "Python":
+
+![](images/Cuplikan%20layar%202024-12-06%20171643.png)
+
+Cara lain menjalankan program Python adalah dengan menulis kode program Anda di dalam sebuah file text biasa (biasanya disimpan dengan extension ".py"), kemudian eksekusi file tersebut dengan perintah:
+
+```{python, eval=FALSE}
+python <nama file.py>
+```
+
+Ada pula Python *interpreter* yang dibuat oleh **IPython Project**, yang bertujuan membuat pekerjaan *programmer* lebih mudah dibanding bila menggunakan Python *interpreter* standar. IPython mempercepat proses *coding* dan *debugging* (mencari kesalahan) program. Informasi lebih lengkap tentang IPython Project dapat dilihat di situsnya <https://ipython.org>.
+
+## Jupyter Notebook
+
+IPython project juga menyediakan fasilitas, yaitu **Jupyter Notebook**, di sini kita bisa menulis program Python, menjalankannya seperti kita memakai IPython dan kemudian menyimpan hasil keluarannya, sekaligus menulis komentar yang diperlukan. Fasilitas ini berbasis web, jadi kita bisa melakukan semuanya melalui *web browser*. *Source code* bisa disimpan di server, tidak disimpan di disk komputer lagi. Keluaran hasil program pun disajikan di *web browser*.
+
+Dengan alasan kemudahan-kemudahan Jupyter Notebook, di dalam bab-bab berikutnya pada buku ini, kita akan menggunakan fasilitas ini. Jupyter Notebook dapat diunduh dan digunakan secara cuma- cuma. Cara instalasi Jupyter Notebook dapat dilihat di Lampiran 1. Pembaca disarankan melakukan pembahasan di buku ini.
+
+# BAB 2: DASAR PEMROGRAMAN PYTHON
+
+## Program Pertama
+
+Mari kita coba membuat program pertama, yang dalam Jupyter Notebook disebut "Notebook". Sebagai awal, Anda bisa buka Notebook baru dengan klik menu New-\> Python3 (atau Python 2 bila versi ini yang terpasang) seperti gambar di bawah:
+
+![](images/Cuplikan%20layar%202024-12-06%20172624.png)
+
+Notebook baru sudah siap, sehingga kita bisa mulai membuat program Python pertama kita yang mencetak ke layar tulisan "halo dunial" dengan fungsi print(). Ketik perintah berikut dan kemudian klik tombol "Run":
+
+![](images/Cuplikan%20layar%202024-12-06%20172924.png)
+
+Selamat! Anda sudah membuat program Python pertama Anda. Mari kita lanjutkan dengan yang lebih kompleks.
+
+## Tipe Data di Python
+
+Ada empat tipe data dasar di Python: ***string*** (teks), ***integer*** (bilangan bulat), ***float*** (bilangan desimal misalnya 0,9999), dan ***boolean*** (ya/tidak atau *true/false*). Bila Anda sudah biasa menulis program, tipe data ini tentunya sudah familiar bagi Anda karena hampir semua bahasa pemrograman juga menggunakan tipe data yang serupa.
+
+Mari kita coba operasi matematika sederhana, dengan variabel a dan b berisi *integer*, lalu keduanya dijumlahkan dan hasil penjumlahannya dimasukkan ke variabel c:
+
+![](images/Cuplikan%20layar%202024-12-06%20173041.png)
+
+Hal yang serupa bisa kita lakukan dengan *float*, contohnya perkalian seperti berikut ini:
+
+![](images/Cuplikan%20layar%202024-12-06%20173128.png)
+
+Bila kita ingin mengolah data teks, kita bisa menggunakan variabel bertipe *string* dengan menggunakan tanda kutip ("), seperti contoh di bawah ini:
+
+![](images/Cuplikan%20layar%202024-12-06%20173414.png)
+
+## Branching dan Loop
+
+Salah satu kemampuan yang hampir pasti ada di setiap bahasa pemrograman adalah ***conditional branching***, yaitu ketika eksekusi program harus memilih ke salah satu cabang berdasarkan syarat suatu nilal *boolean* bernilai *true* atau *false*. Dalam Python, perintah yang digunakan adalah *if* dan *else* seperti contoh di bawah ini:
+
+```{python, eval=FALSE}
+if a > 5:
+   print('Lebih besar dari 5')
+else:
+   print('Lebih kecil dari atau sama dengan 5')
+```
+
+Contoh di atas menggunakan operator perbandingan \> (lebih besar dari) untuk menguji apakah variabel a lebih besar dari angka 5. Bila syarat terpenuhi (*true*) maka blok di bawahnya dieksekusi, bila tidak (*false*) maka blok di bawah *else* yang akan dieksekusi.
+
+Selain operator \>, berikut beberapa operator perbandingan lain yang umum dipakai:
+
+|     |                              |
+|-----|------------------------------|
+| ==  | sama dengan                  |
+| !=  | tidak sama dengan            |
+| \>= | lebih besar dari sama dengan |
+| \>  | lebih besar dari             |
+| \<= | lebih kecil dari sama dengan |
+| \<  | lebih kecil dari             |
+
+Perlu diingat bahwa kita harus menambahkan indentasi (spasi) pada blok program di bawah if (dan else) karena Python tidak mengenal tanda awal dan akhir blok seperti di bahasa lain, seperti Java yang menggunakan simbol kurung kurawal.
+
+Selain *branching*, konsep dasar lain adalah ***loop*** yang dipakai ketika kita ingin ada suatu blok program dieksekusi secara berulang-ulang sampai suatu syarat terpenuhi. Python memiliki dua pilihan untuk *loop*, yaitu dengan perintah while atau dengan for. Contoh di bawah akan mengulang eksekusi blok program selama variabel a masih di bawah 5 dengan perintah while:
+
+```{python}
+a = 1
+while a < 5:
+  print (a)
+  a = a + 1
+```
+
+Serupa dengan itu, perintah for kita gunakan untuk mengulang eksekusi suatu blok program sebanyak yang kita tentukan Perbedaannya, for umumnya bisa digunakan untuk mengakses isi dari suatu struktur data yang berisi banyak elemen, seperti *string*, juga ***List*** dan ***Tuple***. Sebagai contoh kita ingin mengeluarkan seluruh isi suatu variabel *string*:
+
+```{python}
+for x in "halo":
+  print (x)
+```
+
+*Loop* akan berguna dalam *Machine Learning* dan kita akan menggunakannya juga di dalam modul ini.
+
+# BAB 3: FUNGSI DAN METODE
+
+## Function
+
+Seperti di hampir semua bahasa pemrograman, Python juga mengenal konsep ***function*** (fungsi), yaitu suatu blok kode program yang menerima *input* (masukan), memprosesnya, kemudian menghasilkan suatu output (keluaran). *Function* hanya bekerja bilamana dipanggil dan dapat dipanggil berulang-ulang. Bila Anda punya serangkaian tugas yang akan dipanggil lebih dari satu kali di dalam program, sebaiknya Anda membuat sebuah *function* dan menuliskan tugas-tugas itu di dalamnya.
+
+Cara memanggil *function* adalah dengan memberikan tanda kurung buka dan kurung tutup di belakang nama *function*. Di antara kedua tanda kurung kita bisa memasukan satu atau lebih parameter sebagai masukan bagi *function*. Contohnya adalah print() yang baru saja kita gunakan di atas. *Function* ini merupakan ***built-in function***, yaitu fungsi yang sudah tertanam di dalam Python dan bisa selalu dipanggil. Beberapa contoh *built-in function* lainnya:
+
+|         |                                                              |
+|---------|--------------------------------------------------------------|
+| len()   | Menghitung panjang karakter dari suatu object                |
+| hash()  | Menghasilkan kode hash berupa integer berukuran tetap        |
+| round() | Membulatkan integer atau float                               |
+| hex()   | Mengubah dari integer ke heksadesimal                        |
+| int()   | Mengubah dari string atau float ke integer                   |
+| float() | Mengubah dari string atau integer ke float                   |
+| chr()   | Mengubah dari kode Unicode ke string                         |
+| tuple() | Menghasilkan sebuah *Tuple* (lihat bagian lain dari bab ini) |
+
+Contoh penggunaan *function* hex() untuk mengubah *integer* bernilai 1234 menjadi heksadesimal:
+
+```{python}
+a = hex(1234)
+print (a)
+```
+
+Perlu diketahui bahwa sebuah *function* bisa saja tidak memerlukan parameter apapun, atau tidak mengeluarkan keluaran apapun. *Function* seperti ini dipakai untuk mengeksekusi serangkaian perintah dan kita tidak ingin tahu hasilnya.
+
+Kita dapat juga membuat *function* kita sendiri, misalnya sebuah *function* f(x) untuk menghasilkan keliling sebuah lingkaran. Anda tentu masih ingat rumus keliling lingkaran yang kita semua sudah pelajari sewaktu di sekolah dasar, yaitu 3.14 dikalikan dua kali jari-jari lingkaran. Sebuah *function* dideklarasikan (dibuat) dengan menggunakan kata kunci def, dan keluarannya dengan kata kunci return.
+
+```{python}
+def f(x):
+  return 3.14 * x * 2
+```
+
+Fungsi ini kemudian kita panggil dengan:
+
+```{python}
+x = 7 
+y = f(x)
+print (y)
+```
+
+## Method
+
+Python adalah bahasa yang *object-oriented* (berorientasi objek), jad segala hal yang ada di Pyton, baik berupa *integer*, *float*, *string*, dan *boolean* akan diperlakukan sebagai ***object***. Setiap *objec*t bisa memiliki banyak *function* sendiri di dalamnya yang disebut ***method***. Karena mirip, antara *method* dan *function* sering dianggap sama.
+
+Cara memanggil *method* persis seperti memanggil *function*, dengan menambahkan nama *object* dan tanda titik di depannya:
+
+```{python, eval=FALSE}
+object.method()
+```
+
+Misalnya kita memilki sebuah *object* bernama model1 dan di dalamnya adalah *method* bernama fit() maka kita memanggilnya dengan cara:
+
+```{python, eval=FALSE}
+model1.fit()
+```
+
+## Lambda Function
+
+Bisa juga membuat *function* yang tidak memiliki nama, yaitu suatu fungsi pendek yang isinya hanya satu *statement* saja, misalnya fungsi sederhana yang singkat saja dan hanya dipakai satu kali. Untuk ini Python menyediakan kata kunci Lambda, yang artinya adalah fungsi anonim, tanpa nama. Contoh fungsi sederhana yang mengkalikan suatu parameter angka dengan angka 10:
+
+```{python, echo=TRUE, results='hide'}
+def fungsi_singkat(a):
+  return a * 10
+```
+
+Karena sangat singkat, penulisan fungsi diatas bisa digantikan dengan fungsi tanpa nama, dengan menggunakan kata kunci lambda seperti berikut:
+
+```{python, echo=TRUE, results='hide'}
+lambda a: a * 10
+```
+
+Mengapa kita perlu fungsi lambda seperti ini? karena banyak fungsi-fungsi dala Python yang menerima fungsi juga sebagai parameternya. Sebagai gambaran, berikut contoh sebuah fungsi yang menerima fungsi lain sebagai salah satu parameter:
+
+```{python}
+def tampilkan_pelanggan(daftar_pelanggan, fungsi):
+  for nama in daftar_pelanggan:
+    nama_lengkap = fungsi(nama)
+    print(nama_lengkap)
+```
+
+Kita lihat bahwa fungsi diatas selain menerima sebuah *List* daftar_pelanggan, juga menerima fungsi sebagai parameternya. Fungsi tersebut akan melakukan sesuatu pada setiap nama di dalam *List* daftar_pelanggan. Setelah itu hasilnya akan ditampilkan ke layar. Sekarang kita akan mencoba membuat sebuah *List* bernama daftar_pelanggan:
+
+```{python}
+daftar_pelanggan = ['andi', 'budi', 'cica', 'doni', 'eksi']
+```
+
+Kemudian siapkan sebuah fungsi pendek bernama ubah() yang akan mengganti huruf depan nama ke huruf kapital dan menambahkan *string* didepan setiap nama:
+
+```{python}
+def ubah(nama):
+  return 'Bapak/Ibu' + ' ' + nama.capitalize()
+```
+
+Kita lemparkan kedua parameter ini ke fungsi tampilkan_pelanggan(), dan yang seperti kita harapkan, setiap nama di dalam *List* akan diubah sesuai fungsi pendek yang kita buah:
+
+```{python}
+tampilkan_pelanggan(daftar_pelanggan,ubah)
+```
+
+Hasil yang sama bisa kita peroleh dengan lebih singkat, kita tiadakan fungsi ubah() dan menggantikannya dengan fungsi lambda:
+
+```{python}
+tampilkan_pelanggan(daftar_pelanggan, lambda a: 'Bapak/Ibu' + ' ' + a.capitalize())
+```
+
+Seperti kita lihat, fungsi lambda bisa dipakai bila kita hendak mengirimkan fungsi pendek sebagai parameter bagi fungsi lainnya. Banyak fungsi manipulasi data dalam Python yang bisa memanfaatkan fungsi lambda seperti ini. kita akan lihat dalam contoh-contoh di bab-bab selanjutnya.
+
+# BAB 4: STRUKTUR DATA PYTHON
+
+## List dan Tuples
+
+Selain empat tipe data dasar Python yang sudah kita diskusikan di atas, struktur data yang juga penting untuk dipahami dalam Python adalah ***Tuple*** dan ***List***. *Tuple* adalah tempat untuk menyimpan lebih dari satu *object* dalam suatu urutan. Contohnya, kita masukkan enam buah elemen berupa angka ke dalam sebuah *Tuple* bernama t:
+
+```{python}
+t = (1,3,5,7,11,13)
+print(t)
+```
+
+Contoh lain, kita bisa memasukkan *string* "qwerty" ke dalam sebuah *Tuple* bemama q, yang isinya adalah elemen-elemen karakter dari *string* itu. Ini dilakukan dengan fungsi tuple():
+
+```{python}
+q = tuple('qwerty')
+print(q)
+```
+
+Setelah diisi dengan nilai, elemen-elemen di dalam Tuple bisa diakses dengan menggunakan tanda *bracket* []. Penomorannya diawali dari angka nol, bukan 1. Bila Anda sudah biasa menggunakan bahasa-bahasa lain seperti Java, ini mirip dengan itu. Misalnya kita ingin mengambil elemen nomor 4 dari *Tuple* q di atas, maka kita taruh angka 3 ke dalamnya:
+
+```{python}
+r = q[3]
+print(r)
+```
+
+Yang menarik, kita bisa melakukan beragam macam operasi terhadap sebuah *Tuple*. Misalnya bila kita kalikan suatu *Tuple* dengan suatu angka, maka hasilnya adalah semua elemen di dalam *Tuple* akan digandakan sebanyak angka tersebut, dan hasilnya adalah sebuah *Tuple* baru hasil gabungan proses penggandaan:
+
+```{python}
+q * 3
+```
+
+Perlu diingat bahwa *Tuple* bersifat ***immutable***, artinya setelah dibuat dia tidak dapat diubah lagi. Kita buktikan dengan mencoba mengubah salah satu elemen di dalam *Tuple*, maka hasilnya adalah pesan *error*:
+
+```{python, error=TRUE}
+q[3] = 'a'
+```
+
+Untuk melakukan operasi terhadap isi dari setiap elemen di dalam *Tuple* satu per satu, kita bisa menggunakan *loop* dan fungsi enumerate() seperti contoh berikut:
+
+```{python}
+x = tuple('halo')
+for a, b in enumerate(x):
+  print('Isi elemen ' + str(a) + ' adalah ' +b)
+```
+
+Fungsi enumerate() pada contoh di atas akan memasukkan *index* (angka urutan dari angka nol) ke dalam variabel a, dan isi elemen ke dalam variabel b. Seluruh *Tuple* akan dibaca dari awal hingga akhir.
+
+*List*, di lain hal, serupa dengan *Tuple* namun bersifat ***mutable***, yang berarti isinya dapat diubah-ubah setelah dibuat. Jumlah elemen dalam *List* pun dapat ditambah atau dikurangi. Cara membuat *List* mirip dengan cara membuat *Tuple*, bedanya kita gunakan tanda *bracket* [] bukan tanda kurung ():
+
+```{python}
+list1 = [1, 3, 5, 7, 11]
+print(list1)
+```
+
+Bisa juga kita membuat sebuah *List* dengan fungsi list() seperti contoh:
+
+```{python}
+list2 = list('abcdefg')
+print(list2)
+```
+
+Tidak seperti *Tuple*, kita bisa menambahkan jumlah elemen ke dalam *List*, dengan fungsi append() untuk menambah elemen ke bagian paling belakang, atau dengan fungsi insert() untuk memasukkan elemen di tengah-tengah *List*. Contohnya kita akan menambah sebuah elemen tambahan:
+
+```{python}
+list2.append('i')
+print(list2)
+```
+
+Elemen baru telah ditambahkan ke bagian akhir *List*. Sekarang kita akan memasukkan elemen baru di antara 'g' dan 'I', yaitu posisi ke-8 (ingatlah bahwa penomoran diawali dari angka nol):
+
+```{python}
+list2.insert(7, 'h')
+print(list2)
+```
+
+Kebalikannya, bila kita ingin menghapus suatu elemen dari *List*, fungsi pop() bisa digunakan dengan menyertakan nomor urutan yang dikehendaki. Contoh, kita akan menghapus elemen berisi karakter 'd' dari contoh di atas, yaitu elemen nomor 4:
+
+```{python}
+list2.pop(3)
+print(list2)
+```
+
+Cara di atas berlaku bila kita tahu nomor urutan elemen yang hendak kita hapus. Bagaimana bila kita tidak punya informasi nomor urutan tersebut? Kita bisa menggunakan fungsi remove() yang akan mencari elemen pertama di dalam *List* yang berisi nilai tertentu. Contohnya kita ingin membuang elemen dari *List* yang berisi nilai 'f':
+
+```{python}
+list2.remove('f')
+print(list2)
+```
+
+Salah satu pekerjaan yang paling sering dikerjakan dalam bidang analisis data adalah *sorting* (mengurutkan) data. Dengan *List*, hal ini mudah sekali dilakukan, yaitu dengan cara memanggil fungsi sort(). Contoh berikut memasukkan serangkaian elemen berisi angka tidak berurutan, kemudian mengurutkannya:
+
+```{python, echo=TRUE}
+list3 = [9, 1, 7, 3, 6, 5, 4, 2, 8]
+list3.sort()
+print(list3)
+```
+
+Bisa juga kita tambahkan parameter reverse=true untuk mengurutkan secara terbalik:
+
+```{python, echo=TRUE}
+list3.sort(reverse=True)
+print(list3)
+```
+
+Untuk tipe data *string*, mengurutkan elemen-elemen *List* berdasarkan suatu kunci, misalnya panjang *string* di dalam tiap elemen:
+
+```{python}
+list4 = ['abc', 'de', 'f', 'ghi', 'jklmn', 'op']
+list4.sort(key=len)
+print(list4)
+```
+
+Parameter key=len (dari kata 'length') di contoh di atas digunakan oleh fungsi sort() untuk mengurutkan berdasarkan panjang/jumlah huruf elemen. Kita bisa menggunakan fungsi-fungsi lain di parameter ini.
+
+Salah satu hal penting yang sering dilakukan terhadap data adalah mengambil *subset* (sebagian) dari data. Untuk ini kita gunakan notasi ***slicing*** (pemotongan), yaitu [start: stop] di samping *List*. Sebagai contoh, kita ingin mengambil sebagian dari elemen pertama (0) sebanyak empat elemen:
+
+```{python}
+list5 = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+list5[0:4]
+```
+
+Apabila [start] dikosongkan, yang secara otomatis Python akan menganggap awal adalah nol, atau artinya operasi dilakukan dari awal *List*. Dalam contoh di atas, [0:4] bisa cukup ditulis dengan [:4] saja dan hasilnya akan sama:
+
+```{python}
+list5[:4]
+```
+
+Serupa dengan itu, bila stop dikosongkan, maka Python akan menganggap operasi dilakukan hingga akhir *List*.
+
+```{python}
+list5[2:]
+```
+
+Suatu *List* juga bisa berisi banyak *List.* Contoh di bawah ini sebuah *List* berisi tiga buah *List*, masing-masing berisi tiga elemen:
+
+```{python}
+list6 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(list6)
+```
+
+Untuk mengakses seluruh isi suatu *List* berisi banyak *List* seperti di atas, bisa menggunakan for-loop seperti contoh di bawah ini:
+
+```{python}
+n = 0 
+for arr in list6:
+  n = n + 1
+  print("list", n, "=", arr)
+```
+
+Pada dasarnya, sebuah *List* akan berguna saat anda memerlukan tempat untuk menyimpan serangkaian nilai yang bisa diubah-ubah saat program bekerja. Adapun demikian, perlu diperhatikan bahwa proses modifikasi terhadap suatu *List* adalah proses yang berat dan memakan cukup banyak sumber daya komputer. Bila ada banyak elemen di dalam *List*, misalnya ribuan atau puluhan ribu, maka fungsi insert() atau remove() bisa menjadi proses yang tidak efisien karena python harus menggeser semua elemen untuk memberi ruang bagi elemen baru yang masuk, atau mengisi posisi elemen yang terhapus.
+
+Melihat penjelasan di atas, *List* dan *Tuple* nampak serupa, perbedaannya *Tuple* bersifat *immutable* sementara *List* bersifat *mutable*. Lalu, mengapa tidak kita selalu memakai *List* saja dan kita lupakan *Tuple*? Alasannya adalah karena *Tuple* secara komputasional lebih hemat memori. jadi, bila anda ingin membuat urutan data yang tidak akan berubah, pergunakan saja *Tuple*.
+
+## Dictionary
+
+Struktur data yang lain juga penting untuk kita pelajari adalah ***Dict,*** dari kata *dictionary*. Mirip seperti *List*, *Dict* juga *mutable*, bedanya adalah *Dict* digunakan untuk menyimpan pasangan *key-value* (kunci dan nilai isinya).
+
+Untuk membuat *Dict*, kita pergunakan tanda kurung kurawal{}:
+
+```{python}
+pelajaran = {"senin": "matematika, bahasa indonesia", 
+             "selasa": "fisika, biologi", 
+             "rabu": "agama, kimia"}
+```
+
+Contoh diatas menunjukan kita memasukkan tiga kunci, yaitu "senin", "selasa", dan "rabu", kemudian memasukkan nama-nama pelajran sebagai nilai-nilai yang terkait dengan masing-masing kunci Tadi. untuk melihat isi seluruh *Dict*, dan hasilnya setiap pasangan kunci-nilai disimpan dalam sebuah *Tuple*, kita pergunakan fungsi items():
+
+```{python}
+pelajaran.items()
+```
+
+Setelah dibuat, kita bisa mengambil isi *Dict* dengan menggunakan kunci yang kita kehendaki, misalnya kita ingin tahu pelajaran apa di hari Rabu:
+
+```{python}
+pelajaran['rabu']
+```
+
+Bila kunci yang dicari tidak ditemukan, akan ada pesan kesalahan yang muncul. Bila ini terjadi saat program sedang berjalan, secara sendirinya keseluruhan program akan terhenti. Tentunya bukan ini yang kita inginkan, jadi kita memerlukan suatu cara yang lebih baik untuk menangani situasi ketika kunci yang kita cari tidak ditemukan namun program tetap bisa berjalan normal. Untuk ini kita pakai fungsi get():
+
+```{python}
+pelajaran.get('kamis', 'tidak ada pelajaran')
+```
+
+Parameter pertama adalah kunci yang kita cari, dan parameter kedua adalah nilai yang dikeluarkan apabila kunci tersebut tidak ditemukan. Dengan demikian, program tidak akan berhenti diluar rencana.
+
+Kunci bisa berupa objek Python apa saja, namun biasanya yang digunakan adalah tipe data skalar (*integer*, *float*, atau *string*).
+
+# BAB 5: PENGGUNAAN LIBRARY PYTHON UNTUK MACHINE LEARNING
+
+## Import
+
+Dalam Python, kita bisa memasukkan ("mengimpor") modul baru ke dalam program sehingga bisa kita gunakan sesuai keperluan. Modul bisa berupa modul standar Python, atau modul yang Anda buat sendini (atau orang lain). Ini kita lakukan dengan menggunakan perintah import, contohnya kita impor modul math yang ada di dalam Python 3 untuk mengerjakan beragam operasi matematika:
+
+```{python}
+import math as m
+```
+
+Kata kunci as di atas dipakai untuk menyebutkan nama *alias* bagi modul yang baru saja diimpor. Selanjutnya nama *alias* ini yang kita gunakan saat memanggil salah satu *function* yang ada di dalam modul. Sebagai contoh kita panggil *function* sqrt() untuk menghitung akar kuadrat sebuah *integer*.
+
+```{python}
+y = m.sqrt(49)
+print(y)
+```
+
+## NumPy
+
+Meskipun Python sudah memilki kemampuan mengolah data dalam *List* dan *Tuple* seperti dijelaskan di atas, sering dirasakan oleh orang-orang yang banyak bekerja dibidang analisis data bahwa Python masih kurang cepat untuk melakukan pengolahan data dalam *multidimension array* (*array* yang berdimensi banyak) dibandingkan dengan bila dibuat di bahasa lain seperti C atau Java.
+
+Kekurangan ini mendorong dibuatnya *library* tambahan yaitu ***NumPy***, kependekan dari "Numerical Python", yang memungkinkan pengolahan *array* dengan lebih efisien dan cepat. Numpy memiliki struktur *array* tersendiri yang berbeda dengan standar Python.
+
+*Array* dalam NumPy sebenernya mirip dengan *List* atau *Tuple,* hanya bedanya setiap elemen dalam *array* harus bertipe data sama. *Array* satu dimensi bisa dianggap sebagai satu baris variable yang sama jenisnya, sementara *array* dua dimensi bisa dilihat seperti tabel dengan banyak baris dan banyak kolom. *Array* tiga dimensi, meski tidak terlalu sering dipakai, bisa dianggap seperti kubus dengan panjang, tinggi, dan lebar. istilah ***rank*** dipakai dalam NumPy untuk menggantikan istilah dimensi.
+
+Sebelum bisa menggunakan NumPy, anda perlu untuh *library* ini yang caranya cukup mudah. Di *command prompt* komputer, jalankan perintah:
+
+```{bash, eval=FALSE}
+conda install numpy
+```
+
+Setelah instalasi selesai, kita bisa menggunakan NumPy dengan perintah import. Contoh untuk membuat *array* dengan NumPy:
+
+```{python}
+import numpy as np
+x = np.array([1, 3, 5, 7, 11, 13, 17, 23, 29])
+```
+
+Baris pertama memasukan NumPy dengan diwakili variable bersama np. selanjutnya, variable x akan diciptakan sebagai *array* NumPy, dengan berisikan sederatan angka dalam sebuah *List*.
+
+```{python}
+print(x)
+```
+
+Terlihat diatas bahwa variable C yang merupakan *array* memiliki ukuran yaitu 10 elemen:
+
+```{python}
+print(x.size)
+```
+
+Mengambil elemen dalam *array* caranya mirip dengan *List*. Misalnya kita ingin mengambil elemen ke-4 sampai dengan ke-8:
+
+```{python}
+x[4:8]
+```
+
+mengubah elemen juga bisa dilakukan dengan cara serupa, misalnya kita hendak mengganti elemen ke-8 dengan angka nol:
+
+```{python}
+x[7] = 0 
+print(x)
+```
+
+Seperti disebutkan sebelummnya, dengan NumPy kita bisa membuat *array* multidimensi yang berguna bila anda perlu melakukan komputasi numeris dengan matriks yang kompleks. Untuk membuat *array* 2-dimensi dalam NumPy. contohnya sebagai berikut:
+
+```{python}
+y = np.array([[1, 2, 3], [4, 5, 6]])
+print(y)
+```
+
+Untuk melihat wujud *array* yang baru saja kita buat, perintah *shape* dibawah ini akan menunjukan bahwa ada dua dimensi dengan masing-masing berukuran tiga elemen:
+
+```{python}
+print(y.shape)
+```
+
+Barangkali anda bertanya, mengapa kita harus memakai NumPy dan apa saja yang bisa dilakukan dengannya? salah satu alasannya adalah NumPy lebih efisien dalam pengelolaan memori komputer dibandingkan List. Perbedaan kecepatan untuk pengolahan data yang besar bisa sangat signifikan bila dikerjakan dengan NumPy, yang dalam beberapa kasus, bisa mencapai 10 kali lebih cepat. Bila kita harus mengolah data dalam jumlah sangat banyak, perbedaan ini akan sangat terasa
+
+NumPy juga menjadi dasar *library* bagi lain, salah satunya Scikitlearn. Dalam buku ini akan kita demonstrasikan kemampuan NumPy yang sering digunakan untuk keperluan analisis data dan *Machine Learning*, misalnya *sorting* (pengurutan), pembuangan data yang tidak perlu, *join* (penggabungan), agregasi dan penjumlahan.
+
+## Scikitlearn
+
+Python saat ini sangat populer untuk keperluan *Machine Learning* dan salah satu alasan utamanya adalah karena adanya *library* ***Scikit-learn***. *Library* ini menyediakan banyak modul untuk pembuatan model, baik *supervised* maupun *unsupervised*. Scikit-learn mengutamakan kemudahan penggunaan namun tetap memberikan fleksibilitas yang memadai untuk tugas-tugas pembuatan model yang kompleks.
+
+Tabel berikut menunjukkan beberapa modul algoritma *Machine Learning* yang tersedia di Scikit-learn yang paling sering dipakai dan akan kita coba dibuku ini. Scikit-learn menyediakan banyak algoritma selain yang tertera disini, dan jumlahnya terus tumbuh dari hari ke hari. Pembaca yang tertarik dapat melihat dokumentasi lengkap di <http://scikit-learn.org>.
+
+| Algoritma | Nama Kelas untuk Diimpor | Penggunaan |
+|------------------------|-------------------------|------------------------|
+| Linear Regression | sklearn.linear_model.LinearRegression | Prediksi numerik, supervised |
+| Logistic Regression | sklearn.linear_model.LogisticRegression | Classification, supervised |
+| Decision Trees | sklearn.tree.DecisionTreeClassifier | Classification, supervised |
+| Random Forest | sklearn.ensemble.RandomForestClassifier | Classification, supervised |
+| Naive Bayes | sklearn.naive_bayes | Classification, supervised |
+| K-means | sklearn.cluster.KMeans | Clustering, unsupervised |
+| Neural Network | sklearn.neural_network | Regression dan classification, supervised |
+| SVM | sklearn.svm | Regression dan classification, supervised |
+
+Selain itu Scikit-learn juga menyediakan banyak fasilitas untuk melakukan manipulasi data, beberapa diantaranya yang akan kita gunakan dibuku ini, yaitu:
+
+| Algoritma | Penggunaan |
+|------------------------------------|------------------------------------|
+| sklearn.model_selection | Untuk memilih *training* dan *test dataset* |
+| sklearn.metrics | Untuk melakukan pengukuran terhadap berbagai kinerja model |
+| sklearn.preprocessing | Untuk melakukan berbagai transformasi terhadap data mentah |
+| sklear.feature_extraction | untuk mengambil *feature* dari text dan gambar |
+
+## SciPy
+
+Tidak berhenti disitu, ada pula satu lagi *library* yang bisa membantu penerapan komputasi ilmiah yang melibatkan kalkulasi matematis, misalanya aljabar linier, pemrosesan sinyal, dan statistik. Dalam modul ini kita tidak banyak menggunakan *library* ini. Pembaca yang tertarik dapat membuka dokumentasi di <https://www.scipy/org>
+
+## MLXtend
+
+Algoritma *Machine Learning* sangatlah banyak, dan tidak semua tersedia didalam satu *library* saja. sebagai contoh di bab 11 kita akan menggunakan *library* **MLXtend** untuk bisa membuat model dengan *Association Rules*, yang kebetulan belum tersedia di Scikit-learn
+
+## Keras
+
+*Library* Python ini menyediakan beragam fungsi untuk *Neural Network* (jaringan saraf) yang berguna untuk keperluan *deep learning*. Keras digunakan bersama **TensorFlow**, sebuah kumpulan perangkat lunak yang dikembangkan oleh Google. Di buku ini kita tidak membahas khusus tentang *deep learning*, pembaca yang tertarik dapat membuka dokumentasi Keras di <https://keras.io/>
